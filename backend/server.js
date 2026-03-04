@@ -4,6 +4,9 @@ const cors = require("cors");
 // DB Connection function
 const connectDB = require("./config/db");
 
+// Loading Environment Variables
+require("dotenv").config();
+
 // Importing routes
 const authRoutes = require("./routes/authRoutes");
 const postRoutes = require("./routes/postRoutes");
