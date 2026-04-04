@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-dark: #0C2B4E;
+  --color-primary: #1A3D64;
+  --color-secondary: #1D546C;
+  --color-background: #F4F4F4;
+  --color-text: #000000;
+
+  --font-heading: "Libre Baskerville", serif;
+  --font-body: "Poppins", sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+}
