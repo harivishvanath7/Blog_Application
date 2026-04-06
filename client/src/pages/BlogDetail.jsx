@@ -16,10 +16,7 @@ function BlogDetail() {
 
   return (
     <div className="max-w-3xl mx-auto p-6">
-
-      <h1 className="text-4xl mb-4 text-primary-dark">
-        {blog.title}
-      </h1>
+      <h1 className="text-4xl mb-4 text-primary-dark">{blog.title}</h1>
 
       <div className="flex gap-3 mb-4 flex-wrap">
         {blog.tags?.map((tag, i) => (
@@ -32,14 +29,13 @@ function BlogDetail() {
         ))}
       </div>
 
-      <p className="leading-7 text-lg whitespace-pre-line">
-        {blog.content}
-      </p>
+      {/* Rendering as HTML */}
+      <div
+        className="prose max-w-none"
+        dangerouslySetInnerHTML={{ __html: blog.content }}
+      />
 
-      <p className="mt-6 text-sm text-gray-500">
-        👁 {blog.views} views
-      </p>
-
+      <p className="mt-6 text-sm text-gray-500">👁 {blog.views} views</p>
     </div>
   );
 }
