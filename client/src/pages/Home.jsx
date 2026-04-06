@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import API from "../api/api.js";
 import BlogCard from "../components/BlogCard.jsx";
+import Subscribe from "../components/Subscribe.jsx";
 
 
 function Home() {
@@ -25,6 +26,9 @@ function Home() {
                     <BlogCard key={blog._id} blog={blog} />
                 ))}
             </div>
+
+            <Subscribe />
+            
         </div>
     )
 
