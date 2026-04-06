@@ -1,7 +1,5 @@
-export const getPreview = (text, limit = 120) => {
-    if (!text) return "";
-
-    const trimmed = text.slice(0, limit);
-
-    return trimmed.slice(0, trimmed.lastIndexOf(" ")) + "...";
-};
+export const getPreview = (html) => {
+  const tempDiv = document.createElement("div");
+  tempDiv.innerHTML = html;
+  return tempDiv.textContent || tempDiv.innerText || "";
+}
