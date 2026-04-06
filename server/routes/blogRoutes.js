@@ -10,11 +10,13 @@ import {
  deleteBlog,
 } from "../controllers/blogController.js";
 
+import { protect } from "../middleware/authMiddleware.js";
 
-router.post("/", createBlog);
+
+router.post("/", protect, createBlog);
 router.get("/", getBlogs);
 router.get("/:slug", getBlogBySlug);
-router.put("/:id", updateBlog);
-router.delete("/:id", deleteBlog);
+router.put("/:id", protect, updateBlog);
+router.delete("/:id", protect, deleteBlog);
 
 export default router;
