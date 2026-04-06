@@ -1,12 +1,18 @@
-import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home.jsx";
+import BlogDetail from "./pages/BlogDetail.jsx";
 
-const App = () => {
+function App() {
   return (
-    <div className="p-10">
-      <h1 className="text-4xl">Blog App 🚀</h1>
-      <p className="mt-4">Your design system is working!</p>
-    </div>
-  )
-};
+    <Router>
+      <div className="min-h-screen">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/blog/:slug" element={<BlogDetail />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+}
 
 export default App;
