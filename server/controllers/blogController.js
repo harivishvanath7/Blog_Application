@@ -1,5 +1,6 @@
 import slugify from "slugify";
 import Blog from "../models/Blog.js";
+import { sendEmailToSubscribers } from "../utils/sendEmailToSubscribers.js";
 
 const createBlog = async (req, res) => {
   try {
@@ -13,7 +14,16 @@ const createBlog = async (req, res) => {
       tags,
       slug,
     });
+
+    // (after blog is created) - send mails
+    try {
+      await sendEmailToSubscribers(blog.title, blog.content);
+    } catch (err) {
+      console.log("Email failed:", err.message);
+    }
+
     res.status(201).json(blog);
+    
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -82,10 +92,4 @@ const deleteBlog = async (req, res) => {
   }
 };
 
-export {
-  createBlog,
-  getBlogs,
-  getBlogBySlug,
-  updateBlog,
-  deleteBlog,
-};
+export { createBlog, getBlogs, getBlogBySlug, updateBlog, deleteBlog };
