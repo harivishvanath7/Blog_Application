@@ -6,6 +6,10 @@ const subscriberSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  unsubscribeToken: {
+    type: String,
+    unique: true,
+  },
 }, { timestamps: true });
 
 const Subscriber = mongoose.model("Subscriber", subscriberSchema);
