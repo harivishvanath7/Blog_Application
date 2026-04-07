@@ -8,6 +8,11 @@ const createBlog = async (req, res) => {
 
     const slug = slugify(title, { lower: true, strict: true });
 
+    // 🔥 FIX: convert tags properly
+    const tagsArray = typeof tags === "string"
+      ? tags.split(",").map(tag => tag.trim())
+      : tags;
+
     const blog = await Blog.create({
       title,
       content,
