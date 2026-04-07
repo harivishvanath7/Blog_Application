@@ -17,7 +17,7 @@ const createBlog = async (req, res) => {
 
     // (after blog is created) - send mails
     try {
-      await sendEmailToSubscribers(blog.title, blog.content);
+      await sendEmailToSubscribers(blog.title, blog.content, blog.slug);
     } catch (err) {
       console.log("Email failed:", err.message);
     }
