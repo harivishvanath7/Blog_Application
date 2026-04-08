@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { createBlog } from "../services/blogService";
 
 import { useEditor, EditorContent } from "@tiptap/react";
@@ -7,6 +8,8 @@ import StarterKit from "@tiptap/starter-kit";
 function CreateBlog() {
   const [title, setTitle] = useState("");
   const [tags, setTags] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSubmit = async () => {
     try {
@@ -21,6 +24,9 @@ function CreateBlog() {
       });
 
       alert("Blog created!");
+
+      navigate("/admin/dashboard");
+      
     } catch (error) {
         console.error(error);
         alert("Failed to create Blog!!.");
