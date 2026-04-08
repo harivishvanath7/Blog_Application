@@ -16,7 +16,7 @@ const createBlog = async (req, res) => {
     const blog = await Blog.create({
       title,
       content,
-      tags,
+      tags: tagsArray,
       slug,
     });
 
@@ -64,6 +64,16 @@ const getBlogBySlug = async (req, res) => {
   }
 };
 
+const getBlogByID = async (req, res) => {
+  const blog = await Blog.findById(req.params.id);
+
+  if (!blog) {
+    return res.status(404).json({ message: "Blog not found" });
+  }
+
+  res.json(blog);
+};
+
 const updateBlog = async (req, res) => {
   try {
     const { title, content, tags } = req.body;
@@ -97,4 +107,4 @@ const deleteBlog = async (req, res) => {
   }
 };
 
-export { createBlog, getBlogs, getBlogBySlug, updateBlog, deleteBlog };
+export { createBlog, getBlogs, getBlogBySlug, getBlogByID, updateBlog, deleteBlog };
