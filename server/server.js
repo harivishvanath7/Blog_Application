@@ -12,7 +12,10 @@ import newsLetterRoutes from "./routes/newsLetterRoutes.js";
 const app = express();
 
 // midlleware
-app.use(cors());
+app.use(cors({
+  origin: "https://haris-blogs-newsletter.vercel.app/",
+  credentials: true
+}));
 app.use(express.json());
 
 // DB Connection
