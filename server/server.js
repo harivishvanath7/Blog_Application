@@ -13,7 +13,7 @@ const app = express();
 
 // midlleware
 app.use(cors({
-  origin: "https://haris-blogs-newsletter.vercel.app/",
+  origin: "https://haris-blogs-newsletter.vercel.app",
   credentials: true
 }));
 app.use(express.json());
