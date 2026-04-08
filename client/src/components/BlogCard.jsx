@@ -5,7 +5,7 @@ function BlogCard({ blog }) {
 
   return (
     <Link to={`/blog/${blog.slug}`}>
-      <div className="bg-white rounded-2xl p-5 shadow-md hover:shadow-xl transition duration-300 cursor-pointer">
+      <div className="bg-white rounded-2xl p-5 shadow-md hover:shadow-2xl hover:-translate-y-1 transition duration-300 cursor-pointer">
         <h2 className="text-xl mb-2 text-primary">{blog.title}</h2>
 
         <p className="text-sm text-gray-600 mb-3 line-clamp-3">
